@@ -1,10 +1,3 @@
-.box {
-  width: 50px;
-  height: 50px;
-  border: 2px solid black; }
-  .box--red {
-    background-color: red; }
-  .box--blue {
-    background-color: blue; }
+.box{width:50px;height:50px;border:2px solid #000}.box--red{background-color:red}.box--blue,.box--green{background-color:blue}   background-color: blue; }
   .box--green {
     background-color: blue; }
