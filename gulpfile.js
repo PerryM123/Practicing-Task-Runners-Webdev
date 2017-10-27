@@ -24,6 +24,10 @@ const autoprefixer = require('gulp-autoprefixer');
 gulp.task('sass', function(){
   return gulp.src('app/scss/*.scss')
     .pipe(sass()) // Convert sass to CSS!!
+    .on('error', function(err) {
+      console.log(err.message);
+      this.emit('end') // Prevents 'gulp watch' from suddenly stopping
+    })
     .pipe(gulp.dest('app/css'))
 });
 
