@@ -29,9 +29,8 @@ gulp.task('sass', function(){
     .pipe(sass()) // Convert sass to CSS!!
     .on('error', function(err) {
       console.log(err.message);
-      this.emit('end') // Prevents 'gulp watch' from suddenly stopping
+      this.emit('end') // Prevents 'gzulp watch' from suddenly stopping
     })
-    .pipe(cssnano())
     .pipe(gulp.dest('app/css'));
 });
 
@@ -82,6 +81,7 @@ gulp.task('bs-server', ['sass'], function() {
     });
 
     gulp.watch("app/scss/*.scss", ['sass']).on('change', browserSync.reload);
+    gulp.watch("app/css/*.css", ['css-minify']).on('change', browserSync.reload);
     gulp.watch("app/*.html").on('change', browserSync.reload);
     gulp.watch('app/js/*.js', ['js-minify']).on('change', browserSync.reload); 
 });
@@ -89,7 +89,8 @@ gulp.task('bs-server', ['sass'], function() {
 // Watcher
 gulp.task('watch', function(){
   gulp.watch('app/scss/*.scss', ['sass']); 
-  gulp.watch('app/js/*.js', ['js-minify']); 
+  gulp.watch('app/js/*.js', ['js-minify']) 
+  gulp.watch('app/css/*.css', ['css-minify']); 
 });
 
 
