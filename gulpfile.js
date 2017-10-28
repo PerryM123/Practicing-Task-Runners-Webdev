@@ -19,8 +19,11 @@ var uglify = require('gulp-uglify');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 const autoprefixer = require('gulp-autoprefixer');
+var browserSync = require('browser-sync').create();
 
-// SASS -> CSS
+
+
+// SASS -> CSS -> CSS minify
 gulp.task('sass', function(){
   return gulp.src('app/scss/*.scss')
     .pipe(sass()) // Convert sass to CSS!!
@@ -28,7 +31,8 @@ gulp.task('sass', function(){
       console.log(err.message);
       this.emit('end') // Prevents 'gulp watch' from suddenly stopping
     })
-    .pipe(gulp.dest('app/css'))
+    .pipe(cssnano())
+    .pipe(gulp.dest('app/css'));
 });
 
 // JS minify
@@ -71,11 +75,21 @@ gulp.task('release-time', [
 	'images-minify'
 	]); 
 
+// BroswerSync with HTML + Stylesheets + Javascript
+gulp.task('bs-server', ['sass'], function() {
+    browserSync.init({
+        server: "./app"
+    });
+
+    gulp.watch("app/scss/*.scss", ['sass']).on('change', browserSync.reload);
+    gulp.watch("app/*.html").on('change', browserSync.reload);
+    gulp.watch('app/js/*.js', ['js-minify']).on('change', browserSync.reload); 
+});
+
 // Watcher
 gulp.task('watch', function(){
   gulp.watch('app/scss/*.scss', ['sass']); 
   gulp.watch('app/js/*.js', ['js-minify']); 
-  gulp.watch('app/css/*.css', ['css-minify']); 
 });
 
 
