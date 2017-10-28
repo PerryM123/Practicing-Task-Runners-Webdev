@@ -37,7 +37,11 @@ gulp.task('sass', function(){
 // JS minify
 gulp.task('js-minify', function(){
   return gulp.src('app/js/*.js')
-    .pipe(uglify()) 
+    .pipe(uglify())
+    .on('error', function(err) {
+      console.log(err.message);
+      this.emit('end') // Prevents 'gzulp watch' from suddenly stopping
+    })
     .pipe(gulp.dest('dist/js'))
 });
 
