@@ -87,13 +87,12 @@ gulp.task('bs-server', ['sass'], function() {
     gulp.watch("app/scss/*.scss", ['sass']).on('change', browserSync.reload);
     gulp.watch("app/css/*.css", ['css-minify']).on('change', browserSync.reload);
     gulp.watch("app/*.html").on('change', browserSync.reload);
-    gulp.watch('app/js/*.js', ['js-minify']).on('change', browserSync.reload); 
+    gulp.watch('app/js/*.js').on('change', browserSync.reload); 
 });
 
 // Watcher
 gulp.task('watch', function(){
   gulp.watch('app/scss/*.scss', ['sass']); 
-  gulp.watch('app/js/*.js', ['js-minify']) 
   gulp.watch('app/css/*.css', ['css-minify']); 
 });
 
