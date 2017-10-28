@@ -23,5 +23,11 @@ p {
 	min-width: 1080px;
 	margin: 0 auto;
 }
-
+a {
+  text-decoration: none;
+  color: #FFF;
+  &:visited {
+    color: #FFF;
+  }
+}
 // need to add fonts

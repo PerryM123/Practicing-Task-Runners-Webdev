@@ -3,8 +3,22 @@ Things to do later:
 -Change icons into svg
 -Need to figure out normalize vs reset
 -need to continue using BEM
+-section01 is a paralax image
+-how does the div.blahblah-class {} work??
+-is box-sizing: border box global?
+-where do i put sass variables? Just add them to the top or
+ to their own files to be imported later? 
+ (ex: _variables.scss)
+-get into flexbox
+-transitions vs animations
+-so I wanna add jquery, but do I user browserify to create
+ dependencies(?) or bundles?? I'm not clear on the use of
+ browserify...
+-must import breakpoints soon....
 */
-// down-arrow.png
+
+$color-orange: #ef4923;
+
 #section01 {
 	background: url('./../images/top-bg.jpg') no-repeat center center;
 	color: #FFF;
@@ -15,6 +29,9 @@ Things to do later:
 		font-size: 14px;
 		font-weight: bold;
 		text-align: right;
+		position: fixed;
+    	right: 50px;
+    	color: #FFF;
 		&:after {
 			content: "";
 			background: url(../images/phone-circle.png) no-repeat 50%;
@@ -23,8 +40,8 @@ Things to do later:
 			position: relative;
 			}
 	}
-	.main-visual-content {
-    margin-top: 190px;
+	.container-inner {
+		margin-top: 190px;
 		h1 {
 			font-size: 95px;
 			font-weight: bold;
@@ -43,29 +60,44 @@ Things to do later:
 	    padding: 10px 0;
 	    text-decoration: none;
 	    width: 234px;
-
-	    &:after {
-	    	content:"";
-				background: url(../images/down-arrow.png) no-repeat center;
-				position: absolute;
-				bottom: 9px;
-				width: 20px;
-				height: 20px;
-	    }
 		}
+	    .down-arrow {
+	    	background: url(../images/down-arrow.png) no-repeat center;
+			height: 100px;
+	    }
 	}
 }
-.box {
-	width: 50px;
-	height: 50px;
-	border: 2px solid black;
-	&--red {
-		background-color: red;
+header {
+	.container-inner {
+		background: url(../images/header-background.png);
+		position: relative;
+		.logo {
+	    	position: absolute;
+		    left: 15px;
+		    top: 20px;
+		}
+		ul {
+			display: flex;
+			justify-content: center;
+	    align-items: center;
+			li {    
+				display: inline-block;
+				a {
+					padding: 30px 20px;
+					display: inline-block;
+					transition: .3s all;
+				}
+				.highlight {
+					background-color: $color-orange;
+				}
+			}
+		}
 	}
-	&--blue {
-		background-color: blue;
-	}
-	&--green {
-		background-color: blue;
+	.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
 	}
 }
