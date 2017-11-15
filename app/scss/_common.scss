@@ -15,6 +15,8 @@
 }
 body {
   font-family: 'Open Sans', sans-serif;
+  line-height: 150%;
+  box-sizing: border-box;
 }
 p {
 	margin: 0;
@@ -22,6 +24,11 @@ p {
 .content-inner {
 	min-width: 1080px;
 	margin: 0 auto;
+}
+h2 {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 45px;
 }
 a {
   text-decoration: none;
