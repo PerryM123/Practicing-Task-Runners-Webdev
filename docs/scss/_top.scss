@@ -1,0 +1,194 @@
+/* 
+Things to do later:
+-Change icons into svg
+
+-need to continue using BEM
+
+-section01 is a paralax image...
+
+-how does the div.blahblah-class {} work??
+
+-is box-sizing: border box global?
+
+-where do i put sass variables? Just add them to the top or
+ to their own files to be imported later? 
+ (ex: _variables.scss)
+
+-get into flexbox
+
+-transitions vs animations
+
+-so I wanna add jquery, but do I user browserify to create
+ dependencies(?) or bundles?? I'm not clear on the use of
+ browserify...
+
+-must import breakpoints soon....
+
+-maybe use min-wdth instead of just width???
+
+-don't think I need to use css minify for browser sync. Need to do it for when it's
+ time for release only??
+*/
+
+$color-orange: #ef4923;
+$section03-background: #0f7bd5;
+/* section01 */
+#section01 {
+	background: url('./../images/top-bg.jpg') no-repeat center center;
+	color: #FFF;
+	height: 637px;
+	padding: 30px 60px 0 60px;
+	text-align: center;
+	.phone-number {
+		font-size: 14px;
+		font-weight: bold;
+		text-align: right;
+		position: fixed;
+  	right: 50px;
+  	color: #FFF;
+    z-index: 9999;
+		&:after {
+			content: "";
+			background: url(../images/phone-circle.png) no-repeat 50%;
+			left: 15px;
+			padding-left: 10px;
+			position: relative;
+			}
+	}
+	.container-inner {
+		margin-top: 190px;
+		h1 {
+			font-size: 95px;
+			font-weight: bold;
+			margin-bottom: 30px;
+		}
+		p {
+			margin-bottom: 100px;
+		}
+		a {
+	    border: 3px solid #fff;
+	    background-color: transparent;
+	    color: #fff;
+	    display: inline-block;
+	    font-size: 18px;
+	    font-weight: 700;
+	    padding: 10px 0;
+	    text-decoration: none;
+	    width: 234px;
+		}
+	    .down-arrow {
+	    	background: url(../images/down-arrow.png) no-repeat center;
+			height: 100px;
+	    }
+	}
+}
+/* //section01 */
+/* section02 */
+#section02 {
+	.container-inner {
+		width: 600px;
+		margin: auto;
+		padding: 100px 0 160px 0;
+		.section-explaination {
+			margin-bottom: 45px;
+		}
+		.pair-boxes {
+			p {
+				width: 270px;
+				display: inline-block;
+				vertical-align: top;
+				&:nth-of-type(1) {
+					margin-right: 50px;
+				}
+			}
+		}
+	}
+}
+/* //section02 */
+/* section03 */
+#section03 {
+	background-color: $section03-background;
+	color: #FFF;
+	padding: 100px 0 160px 0;
+	position: relative;
+	.container-inner {
+		position: relative;
+		z-index: 3;
+		width: 620px;
+		margin: auto;
+		.section-explaination {
+			margin-bottom: 45px;
+			text-align: center;
+		}
+		.icon-group {
+			.service-icon {
+				display: inline-block;
+				width: 160px;
+				margin: 0 20px;
+				margin-bottom: 50px;
+				img {
+					width: 100%;
+					transition: .2s all;
+				}
+				p {
+					margin-top: 30px;
+					text-align: center;
+				}
+				&:hover {
+					img {
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+	}
+	.background-shoe {
+		z-index: 1;
+		position: absolute;
+		top: 10%;
+		&--left {
+			left: 30px;
+		}
+		&--right {
+			right: 30px;
+		}
+	}
+}
+/* //section03 */
+/* header */
+header {
+	.container-inner {
+		background: url(../images/header-background.png);
+		position: relative;
+		.logo {
+	    	position: absolute;
+		    left: 15px;
+		    top: 20px;
+		}
+		ul {
+			display: flex;
+			justify-content: center;
+	    align-items: center;
+			li {    
+				display: inline-block;
+				a {
+					padding: 30px 20px;
+					display: inline-block;
+					transition: .3s all;
+				}
+				.highlight {
+					background-color: $color-orange;
+				}
+			}
+		}
+	}
+	.fixed {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+	}
+}
+/* //header */

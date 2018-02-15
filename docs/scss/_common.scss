@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Open Sans', sans-serif;
+  // do I need all these calls for font?
+  src: url( './../fonts/OpenSans-Bold.ttf'),
+  url( './../fonts/OpenSans-BoldItalic.ttf'),
+  url( './../fonts/OpenSans-ExtraBold.ttf'),
+  url( './../fonts/OpenSans-ExtraBoldItalic.ttf'),
+  url( './../fonts/OpenSans-Italic.ttf'),
+  url( './../fonts/OpenSans-Light.ttf'),
+  url( './../fonts/OpenSans-LightItalic.ttf'),
+  url( './../fonts/OpenSans-Regular.ttf'),
+  url( './../fonts/OpenSans-SemiBold.ttf'),
+  url( './../fonts/OpenSans-SemiBoldItalic.ttf')  ; 
+
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 150%;
+  box-sizing: border-box;
+}
+p {
+	margin: 0;
+}
+.content-inner {
+	min-width: 1080px;
+	margin: 0 auto;
+}
+h2 {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 45px;
+}
+a {
+  text-decoration: none;
+  color: #FFF;
+  &:visited {
+    color: #FFF;
+  }
+}
+// need to add fonts
